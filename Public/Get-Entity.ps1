@@ -1,11 +1,12 @@
-function Invoke-InitializeEnvironment {
+function Get-Entity {
     param (
+        [string] $EntityId,
         [string] $EnvironmentName,
         [string] $EngineHostName = $env:SC_EngineHost,
         [int] $CommerceOpsPort = $env:SC_EnginePort
     )
 
-    $Url = ("https://{0}:{1}/commerceops/InitializeEnvironment()" -f $EngineHostName, $CommerceOpsPort)
+    $Url = ("https://{0}:{1}/commerceops/GetRawEntity()" -f $EngineHostName, $CommerceOpsPort)
     Write-Host "Calling: $($Url)" -ForegroundColor Green
 
     $token = Get-IdServerTokenFromEnvironment
@@ -14,8 +15,9 @@ function Invoke-InitializeEnvironment {
     $headers.Add("Authorization", $token)
     $headers.Add("Content-Type", "application/json")
 
-    $body = "{`"environment`": `"$EnvironmentName`"}"
+    $body = "{`"entityId`": `"$EntityId`",`"environmentName`": `"$EnvironmentName`"`n}"
 
-    Invoke-RestMethod $Url -TimeoutSec 1200 -Method POST -Headers $headers -Body $body
+    $response = Invoke-RestMethod $Url -TimeoutSec 1200 -Method POST -Headers $headers -Body $body
+    $response | ConvertTo-Json
     Write-Host "Initialize environment started" -ForegroundColor Green
 }

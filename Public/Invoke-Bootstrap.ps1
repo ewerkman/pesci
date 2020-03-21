@@ -5,11 +5,11 @@ Set-StrictMode -Version 2.0
 
 function Invoke-Bootstrap {
     param (
-        [Parameter(Mandatory)] [string] $engineHostName,
-        [int] $CommerceOpsPort = 443
+        [string] $EngineHostName = $env:SC_EngineHost,
+        [int] $CommerceOpsPort = $env:SC_EnginePort
     )
 
-    $Url = ("https://{0}:{1}/commerceops/Bootstrap()" -f $engineHostName, $CommerceOpsPort)
+    $Url = ("https://{0}:{1}/commerceops/Bootstrap()" -f $EngineHostName, $CommerceOpsPort)
     Write-Host "BootStrapping Commerce Services: $($Url)" -ForegroundColor Green
 
     $token = Get-IdServerTokenFromEnvironment
