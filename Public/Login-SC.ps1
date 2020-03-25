@@ -1,13 +1,13 @@
 function Login-SC {
     param (
-        [Parameter(Mandatory)] [string] $username,
-        [Parameter(Mandatory)] [securestring] $password,
-        [Parameter(Mandatory)] [string] $identityServerHost
+        [Parameter(Mandatory)] [string] $Username,
+        [Parameter(Mandatory)] [securestring] $Password,
+        [Parameter(Mandatory)] [string] $IdentityServerHost
     )
 
-    $token = Get-IdServerToken $username -SecurePassword $password -identityServerHost $identityServerHost
+    $token = Get-IdServerToken $Username -SecurePassword $Password -identityServerHost $IdentityServerHost
 
+    # Store the token in an environment variable
     $SecureToken = $token | ConvertTo-SecureString -AsPlainText -Force | ConvertFrom-SecureString
     $env:SC_TOKEN = $SecureToken
-    
 }

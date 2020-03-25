@@ -1,12 +1,11 @@
-function Get-Entity {
+function Invoke-CleanEnvironment {
     param (
-        [string] $EntityId,
         [string] $EnvironmentName = $env:SC_EnvironmentName,
         [string] $EngineHostName = $env:SC_EngineHost,
         [int] $CommerceOpsPort = $env:SC_EnginePort
     )
 
-    $Url = ("https://{0}:{1}/commerceops/GetRawEntity()" -f $EngineHostName, $CommerceOpsPort)
+    $Url = ("https://{0}:{1}/commerceops/CleanEnvironment()" -f $EngineHostName, $CommerceOpsPort)
     Write-Host "Calling: $($Url)" -ForegroundColor Green
 
     $token = Get-IdServerTokenFromEnvironment
@@ -15,10 +14,8 @@ function Get-Entity {
     $headers.Add("Authorization", $token)
     $headers.Add("Content-Type", "application/json")
 
-    $body = "{`"entityId`": `"$EntityId`",`"environmentName`": `"$EnvironmentName`"`n}"
+    $body = "{`"environment`": `"$EnvironmentName`"}"
 
-    $response = Invoke-RestMethod $Url -TimeoutSec 1200 -Method POST -Headers $headers -Body $body
-    $response | ConvertTo-Json
-
-    Write-Host "Initialize environment started" -ForegroundColor Green
+    Invoke-RestMethod $Url -TimeoutSec 1200 -Method POST -Headers $headers -Body $body
+    Write-Host "Clean environment started" -ForegroundColor Green
 }

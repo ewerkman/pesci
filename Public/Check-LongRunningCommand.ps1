@@ -5,7 +5,6 @@ param (
     [int] $CommerceOpsPort = $env:SC_EnginePort
 )
 
-
     $Url = ("https://{0}:{1}/commerceops/CheckCommandStatus(taskId=$TaskId)" -f $EngineHostName, $CommerceOpsPort)
     Write-Host "Calling: $($Url)" -ForegroundColor Green
 

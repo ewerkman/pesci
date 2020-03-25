@@ -1,6 +1,6 @@
 function Invoke-InitializeEnvironment {
     param (
-        [string] $EnvironmentName,
+        [string] $EnvironmentName = $env:SC_EnvironmentName,
         [string] $EngineHostName = $env:SC_EngineHost,
         [int] $CommerceOpsPort = $env:SC_EnginePort
     )
