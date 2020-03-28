@@ -30,7 +30,7 @@ To get a token which can be used to login to Sitecore Commmerce:
 
 ### Environment variables
 
-You can use environment variables to set common things like the url and port of the Commerce Engine and the environment you want to use. 
+You can use environment variables to set common things like the url and port of the Commerce Engine and the environment you want to use. Once set, the environment variables will be used by the cmdlets if not specified on the command line.
 
 You can use the following environment variables:
 
@@ -44,6 +44,8 @@ You can use the following environment variables:
 ### Bootstrapping & Initialization
 
 #### Invoke-Bootstrap
+
+Bootstraps the Commerce Engine.
 
 ##### Syntax
 
@@ -60,6 +62,8 @@ You can use the following environment variables:
 ```
 
 #### Invoke-InitializeEnvironment
+
+Initializes the specified environment. You can use the taskid that is returned to check whether the initialize command has been finished, using `Invoke-CheckLongRunningCommand`.
 
 ##### Syntax
 
@@ -78,14 +82,38 @@ You can use the following environment variables:
 
 #### Invoke-CleanEnvironment
 
+Cleans the specified environment.
+
 ##### Syntax
 
+```
+    Invoke-CleanEnvironment
+        -Environment <string>
+        -EngineHost <string>
+        -EnginePort <Int32>
+```
+
 ##### Example 
+
+```
+    Invoke-CleanEnvironment -Environment HabitatAuthoring -EngineHost authoring.sc9.com -EnginePort 5000
+```
 
 #### Invoke-CheckLongRunningCommand
 
+Checks the state of a long running command.
+
 ##### Syntax
+
+```
+    Invoke-CheckLongRunningCommand
+        -TaskId <int32>
+        -EngineHost <string>
+        -EnginePort <Int32>
+```
 
 ##### Example 
 
-
+```
+    Invoke-CheckLongRunningCommand -TaskId 322 -EngineHost authoring.sc9.com -EnginePort 5000
+```
