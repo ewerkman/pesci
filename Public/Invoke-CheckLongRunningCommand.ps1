@@ -1,7 +1,7 @@
 function Invoke-CheckLongRunningCommand {
 param (
     [int] $TaskId,
-    [string] $EngineHostName = $env:SC_EngineHost,
+    [string] $EngineHost = $env:SC_EngineHost,
     [int] $EnginePort = $env:SC_EnginePort
 )
 

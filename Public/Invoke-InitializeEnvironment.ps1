@@ -1,7 +1,7 @@
 function Invoke-InitializeEnvironment {
     param (
-        [string] $EnvironmentName = $env:SC_EnvironmentName,
-        [string] $EngineHostName = $env:SC_EngineHost,
+        [string] $Environment = $env:SC_EnvironmentName,
+        [string] $EngineHost = $env:SC_EngineHost,
         [int] $EnginePort = $env:SC_EnginePort
     )
 

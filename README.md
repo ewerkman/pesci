@@ -1,5 +1,4 @@
-# PESCi
-## Powershell Extensions for Sitecore Commerce
+# PESCi - Powershell Extensions for Sitecore Commerce
 
 Pesci is a set of Powershell Extensions for Sitecore Commerce that makes it easier to perform operations on the Sitecore Commerce Engine. 
 
@@ -31,11 +30,16 @@ To get a token which can be used to login to Sitecore Commmerce:
 
 ### Environment variables
 
-#### SC_EngineHost
+You can use environment variables to set common things like the url and port of the Commerce Engine and the environment you want to use. 
 
-#### SC_EnginePort
+You can use the following environment variables:
 
-#### SC_Environment
+| Name        | Description           |  Example|
+| ------------- |-------------|-------------| 
+|SC_EngineHost|Url of the engine to use|`authoring.sc9.com`|
+|SC_EnginePort|Port of the engine to use|`5000`|
+|SC_Environment|Default environment to use|`HabitatAuthoring`|
+
 
 ### Bootstrapping & Initialization
 

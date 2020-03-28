@@ -1,7 +1,7 @@
 function Invoke-CleanEnvironment {
     param (
-        [string] $EnvironmentName = $env:SC_EnvironmentName,
-        [string] $EngineHostName = $env:SC_EngineHost,
+        [string] $Environment = $env:SC_Environment,
+        [string] $EngineHost = $env:SC_EngineHost,
         [int] $EnginePort = $env:SC_EnginePort
     )
 

@@ -5,7 +5,7 @@ Set-StrictMode -Version 2.0
 
 function Invoke-Bootstrap {
     param (
-        [string] $EngineHostName = $env:SC_EngineHost,
+        [string] $EngineHost = $env:SC_EngineHost,
         [int] $EnginePort = $env:SC_EnginePort
     )
 
