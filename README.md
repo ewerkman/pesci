@@ -2,6 +2,16 @@
 
 Pesci is a set of Powershell Extensions for Sitecore Commerce that makes it easier to perform operations on the Sitecore Commerce Engine. 
 
+## Installation
+
+The PESCi module can be installed from Powershell Gallery [https://www.powershellgallery.com/packages/Pesci](https://www.powershellgallery.com/packages/Pesci) by using the following command line:
+
+```
+PS> Install-Module -Name Pesci
+```
+
+## Using PESCi
+
 ### Logging in
 
 To perform any of the cmdlets you first need to connect to the Commerce Engine using a username and password. The `Connect-Commerce` cmdlet connects to Sitecore Identity Server using the supplied username and password and retrieves a token. The token is saved in an environment variable called SC_TOKEN which is subsequently used by the other cmdlets to authenticate to Commerce Engine. 
