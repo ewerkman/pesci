@@ -21,9 +21,8 @@ To get a token which can be used to login to Sitecore Commmerce:
 
 ```
     # Enter the admin password from the console
-    $password = Read-Host -AsSecureString
-
-    Connect-Commerce -Username admin -Password $password -IdentityServerHost sc9.identityserver 
+    PS C:\> $password = Read-Host -AsSecureString
+    PS C:\> Connect-Commerce -Username admin -Password $password -IdentityServerHost sc9.identityserver 
 ```
 
 ## Cmdlets
