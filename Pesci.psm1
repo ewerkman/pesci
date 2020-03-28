@@ -26,11 +26,11 @@ $public = Get-ChildItem -Path (Join-Path $PSScriptRoot Public) -Include *.ps1 -F
     }
 }
 
-Export-ModuleMember Login-SC
+Export-ModuleMember Connect-Commerce
 Export-ModuleMember Invoke-Bootstrap
 Export-ModuleMember Invoke-InitializeEnvironment
 Export-ModuleMember Invoke-CleanEnvironment
-Export-ModuleMember Check-LongRunningCommand
+Export-ModuleMember Invoke-CheckLongRunningCommand
 Export-ModuleMember Get-Entity
 
 

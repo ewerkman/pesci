@@ -10,6 +10,8 @@ Function Get-IdServerToken {
 
     $UrlIdentityServerGetToken = ("https://{0}/connect/token" -f $identityServerHost)
 
+    Write-Information "Retrieving token using $UrlIdentityServerGetToken..."
+
     $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
     $headers.Add("Content-Type", 'application/x-www-form-urlencoded')
     $headers.Add("Accept", 'application/json')
@@ -21,8 +23,8 @@ Function Get-IdServerToken {
         client_id  = 'postman-api'
         scope      = 'openid EngineAPI postman_api'
     }
-    Write-Host "Getting Identity Token From Sitecore.IdentityServer" -ForegroundColor Green
-    $response = Invoke-RestMethod $UrlIdentityServerGetToken -Method Post -Body $body -Headers $headers
+    Write-Information "Getting Identity Token From Sitecore.IdentityServer" -ForegroundColor Green
+    $response = Invoke-RestMethod $UrlIdentityServerGetToken -Method Post -Body $body -Headers $headers -ErrorAction Stop
 
     $sitecoreIdToken = "Bearer {0}" -f $response.access_token
 
@@ -30,7 +32,7 @@ Function Get-IdServerToken {
 }
 
 function Get-IdServerTokenFromEnvironment {
-    $secureToken = ConvertTo-SecureString $env:SC_TOKEN 
+    $secureToken = ConvertTo-SecureString $env:SC_TOKEN
     $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureToken)
     $token = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
     return $token

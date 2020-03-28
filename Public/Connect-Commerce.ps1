@@ -1,4 +1,4 @@
-function Login-SC {
+function Connect-Commerce {
     param (
         [Parameter(Mandatory)] [string] $Username,
         [Parameter(Mandatory)] [securestring] $Password,

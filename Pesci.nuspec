@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Pesci</id>
+    <version>$version$</version>
+    <title>Pesci</title>
+    <summary>PowerShell Extensions for Sitecore Commerce</summary>
+    <description>PowerShell Extensions for Sitecore Commerce.</description>
+    <tags>sitecore commerce powershell</tags>
+    <authors>Erwin Werkman</authors>
+    <licenseUrl>https://raw.githubusercontent.com/ewerkman/pesci/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/ewerkman/pesci</projectUrl>
+  </metadata>
+  <files>
+    <file src="Pesci.psm1" target="$targetBase$" />
+    <file src="Pesci.psd1" target="$targetBase$" />
+    <file src="LICENSE*" target="$targetBase$" />
+    <file src="Private\**\*.*" target="$targetBase$\Private" />
+    <file src="Public\**\*.*" target="$targetBase$\Public" />
+  </files>
+</package>
