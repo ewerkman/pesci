@@ -1,15 +1,17 @@
 $Settings = @{
     ManifestPath = '{0}\{1}\{1}.psd1' -f $PSScriptRoot, 'Pesci'
     Version = $env:APPVEYOR_BUILD_VERSION
-    VersionRegex = "ModuleVersion\s=\s'(?<ModuleVersion>\S+)'" -as [regex]
+    VersionRegex = "ModuleVersion\s+=\s+'(?<ModuleVersion>\S+)'" -as [regex]
 }
+
+Write-Host $Settings.ManifestPath 
 
 $ManifestContent = Get-Content -Path $Settings.ManifestPath
 $CurrentVersion = $Settings.VersionRegex.Match($ManifestContent).Groups['ModuleVersion'].Value
 "Current module version in the manifest : $CurrentVersion"
 
-$ManifestContent -replace $CurrentVersion,$Settings.Version | Set-Content -Path $Settings.ManifestPath -Force
-$NewManifestContent = Get-Content -Path $Settings.ManifestPath
+$ManifestContent -replace $CurrentVersion,$Settings.Version | Set-Content -Path $Settings.ManifestPath -Force -Encoding Unicode
+$NewManifestContent = Get-Content -Path $Settings.ManifestPath 
 $NewVersion = $Settings.VersionRegex.Match($NewManifestContent).Groups['ModuleVersion'].Value
 "Updated module version in the manifest : $NewVersion"
 
