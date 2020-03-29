@@ -17,4 +17,4 @@ If ( $NewVersion -ne $Settings.Version ) {
     Throw "Module version was not updated correctly to $($Settings.Version) in the manifest."
 }
 
-Publish-Module -Path Pesci -NuGetApiKey $ENV:NugetApiKey -Verbose -WhatIf
+Publish-Module -Path Pesci -NuGetApiKey $ENV:NugetApiKey -Verbose
