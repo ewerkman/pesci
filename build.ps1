@@ -4,8 +4,6 @@ $Settings = @{
     VersionRegex = "ModuleVersion\s+=\s+'(?<ModuleVersion>\S+)'" -as [regex]
 }
 
-Write-Host $Settings.ManifestPath 
-
 $ManifestContent = Get-Content -Path $Settings.ManifestPath
 $CurrentVersion = $Settings.VersionRegex.Match($ManifestContent).Groups['ModuleVersion'].Value
 "Current module version in the manifest : $CurrentVersion"
