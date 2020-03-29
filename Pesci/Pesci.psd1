@@ -12,7 +12,7 @@
     RootModule        = 'Pesci.psm1'
 
     # Version number of this module.
-    ModuleVersion     = 'x.x.x'
+    ModuleVersion     = '1.0.0'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()

@@ -16,8 +16,9 @@ function Invoke-RunMinion {
     $headers.Add("Authorization", $token)
     $headers.Add("Content-Type", "application/json")
 
-    $body = "{`"minionFullName`":`"$MinionFullName`",`"environment`": `"$EnvironmentName`"}"
+    $body = "{`"minionFullName`":`"$MinionFullName`",`"environmentName`": `"$EnvironmentName`"}"
 
     Invoke-RestMethod $Url -TimeoutSec 1200 -Method POST -Headers $headers -Body $body
+    
     Write-Verbose "RunMinion finished for minion $MinionFullName" 
 }

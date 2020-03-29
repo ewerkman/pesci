@@ -15,8 +15,9 @@ function Invoke-CleanEnvironment {
     $headers.Add("Authorization", $token)
     $headers.Add("Content-Type", "application/json")
 
-    $body = "{`"environment`": `"$EnvironmentName`"}"
+    $body = "{`"environmentName`": `"$EnvironmentName`"}"
 
     Invoke-RestMethod $Url -TimeoutSec 1200 -Method POST -Headers $headers -Body $body
+    
     Write-Verbose "Clean environment started" 
 }
