@@ -1,13 +1,14 @@
 function Get-Entity {
+    [CmdLetBinding()]
     param (
         [string] $EntityId,
-        [string] $Environment = $env:SC_Environment,
+        [string] $EnvironmentName = $env:SC_Environment,
         [string] $EngineHost = $env:SC_EngineHost,
         [int] $EnginePort = $env:SC_EnginePort
     )
 
-    $Url = ("https://{0}:{1}/commerceops/GetRawEntity()" -f $EngineHostName, $EnginePort)
-    Write-Information "Calling: $($Url)" -ForegroundColor Green
+    $Url = ("https://{0}:{1}/commerceops/GetRawEntity()" -f $EngineHost, $EnginePort)
+    Write-Verbose "Calling: $($Url)" 
 
     $token = Get-IdServerTokenFromEnvironment
 
@@ -20,5 +21,5 @@ function Get-Entity {
     $response = Invoke-RestMethod $Url -TimeoutSec 1200 -Method POST -Headers $headers -Body $body
     $response | ConvertTo-Json
 
-    Write-Information "Initialize environment started" -ForegroundColor Green
+    Write-Verbose "Initialize environment started" 
 }

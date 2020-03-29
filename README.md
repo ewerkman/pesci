@@ -2,6 +2,11 @@
 
 Pesci is a set of Powershell Extensions for Sitecore Commerce that makes it easier to perform operations on the Sitecore Commerce Engine. 
 
+## Compatibility
+
+* PESCi has been tested on Sitecore Commerce 9.2 and above. 
+* It requires Powershell 5.1 or above.
+
 ## Installation
 
 The PESCi module can be installed from Powershell Gallery [https://www.powershellgallery.com/packages/Pesci](https://www.powershellgallery.com/packages/Pesci) by using the following command line:

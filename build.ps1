@@ -1,0 +1,1 @@
+Publish-Module -Path Pesci -NuGetApiKey $ENV:NugetApiKey -Verbose -WhatIf

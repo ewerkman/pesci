@@ -1,12 +1,13 @@
-function Invoke-InitializeEnvironment {
+function Invoke-CleanEnvironment {
+    [CmdLetBinding()]
     param (
-        [string] $Environment = $env:SC_EnvironmentName,
+        [string] $EnvironmentName = $env:SC_Environment,
         [string] $EngineHost = $env:SC_EngineHost,
         [int] $EnginePort = $env:SC_EnginePort
     )
 
-    $Url = ("https://{0}:{1}/commerceops/InitializeEnvironment()" -f $EngineHostName, $EnginePort)
-    Write-Information "Calling: $($Url)" -ForegroundColor Green
+    $Url = ("https://{0}:{1}/commerceops/CleanEnvironment()" -f $EngineHost, $EnginePort)
+    Write-Verbose "Calling: $($Url)" 
 
     $token = Get-IdServerTokenFromEnvironment
 
@@ -17,5 +18,5 @@ function Invoke-InitializeEnvironment {
     $body = "{`"environment`": `"$EnvironmentName`"}"
 
     Invoke-RestMethod $Url -TimeoutSec 1200 -Method POST -Headers $headers -Body $body
-    Write-Information "Initialize environment started" -ForegroundColor Green
+    Write-Verbose "Clean environment started" 
 }

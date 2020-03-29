@@ -4,13 +4,14 @@
 Set-StrictMode -Version 2.0
 
 function Invoke-Bootstrap {
+    [CmdLetBinding()]
     param (
         [string] $EngineHost = $env:SC_EngineHost,
         [int] $EnginePort = $env:SC_EnginePort
     )
 
-    $Url = ("https://{0}:{1}/commerceops/Bootstrap()" -f $EngineHostName, $EnginePort)
-    Write-Information "BootStrapping Commerce Services: $($Url)" -ForegroundColor Green
+    $Url = ("https://{0}:{1}/commerceops/Bootstrap()" -f $EngineHost, $EnginePort)
+    Write-Verbose "BootStrapping Commerce Services: $($Url)" 
 
     $token = Get-IdServerTokenFromEnvironment
 
@@ -18,5 +19,5 @@ function Invoke-Bootstrap {
     $headers.Add("Authorization", $token)
 
     Invoke-RestMethod $Url -TimeoutSec 1200 -Method POST -Headers $headers
-    Write-Information "Commerce Services BootStrapping completed" -ForegroundColor Green
+    Write-Verbose "Commerce Services BootStrapping completed" 
 }

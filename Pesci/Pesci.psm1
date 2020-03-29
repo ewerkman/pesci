@@ -31,6 +31,7 @@ Export-ModuleMember Invoke-Bootstrap
 Export-ModuleMember Invoke-InitializeEnvironment
 Export-ModuleMember Invoke-CleanEnvironment
 Export-ModuleMember Invoke-CheckLongRunningCommand
+Export-ModuleMember Invoke-RunMinion
 Export-ModuleMember Get-Entity
 
 

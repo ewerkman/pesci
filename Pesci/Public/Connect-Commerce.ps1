@@ -1,4 +1,5 @@
 function Connect-Commerce {
+    [CmdLetBinding()]
     param (
         [Parameter(Mandatory)] [string] $Username,
         [Parameter(Mandatory)] [securestring] $Password,

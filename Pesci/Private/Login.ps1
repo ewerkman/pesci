@@ -10,7 +10,7 @@ Function Get-IdServerToken {
 
     $UrlIdentityServerGetToken = ("https://{0}/connect/token" -f $identityServerHost)
 
-    Write-Information "Retrieving token using $UrlIdentityServerGetToken..."
+    Write-Verbose "Retrieving token using $UrlIdentityServerGetToken..."
 
     $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
     $headers.Add("Content-Type", 'application/x-www-form-urlencoded')
@@ -23,7 +23,7 @@ Function Get-IdServerToken {
         client_id  = 'postman-api'
         scope      = 'openid EngineAPI postman_api'
     }
-    Write-Information "Getting Identity Token From Sitecore.IdentityServer" -ForegroundColor Green
+    Write-Verbose "Getting Identity Token From Sitecore.IdentityServer" 
     $response = Invoke-RestMethod $UrlIdentityServerGetToken -Method Post -Body $body -Headers $headers -ErrorAction Stop
 
     $sitecoreIdToken = "Bearer {0}" -f $response.access_token
