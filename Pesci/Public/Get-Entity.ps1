@@ -20,6 +20,4 @@ function Get-Entity {
 
     $response = Invoke-RestMethod $Url -TimeoutSec 1200 -Method POST -Headers $headers -Body $body
     $response | ConvertTo-Json
-
-    Write-Verbose "Initialize environment started" 
 }

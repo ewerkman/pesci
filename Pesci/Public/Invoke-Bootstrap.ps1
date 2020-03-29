@@ -19,5 +19,6 @@ function Invoke-Bootstrap {
     $headers.Add("Authorization", $token)
 
     Invoke-RestMethod $Url -TimeoutSec 1200 -Method POST -Headers $headers
+    
     Write-Verbose "Commerce Services BootStrapping completed" 
 }

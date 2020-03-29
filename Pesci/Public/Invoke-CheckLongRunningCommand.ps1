@@ -16,5 +16,6 @@ function Invoke-CheckLongRunningCommand {
     $headers.Add("Content-Type", "application/json")
 
     Invoke-RestMethod $Url -TimeoutSec 1200 -Method GET -Headers $headers
+    
     Write-Verbose "Initialize environment started" 
 }
