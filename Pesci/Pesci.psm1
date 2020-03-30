@@ -30,8 +30,10 @@ Export-ModuleMember Connect-Commerce
 Export-ModuleMember Invoke-Bootstrap
 Export-ModuleMember Invoke-InitializeEnvironment
 Export-ModuleMember Invoke-CleanEnvironment
+Export-ModuleMember Invoke-CleanEnvironmentCache
 Export-ModuleMember Invoke-CheckLongRunningCommand
 Export-ModuleMember Invoke-RunMinion
+Export-ModuleMember Invoke-EnsureSyncDefaultContentPaths
 Export-ModuleMember Get-Entity
 
 

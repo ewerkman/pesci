@@ -131,3 +131,23 @@ Checks the state of a long running command.
 ```
     Invoke-CheckLongRunningCommand -TaskId 322 -EngineHost authoring.sc9.com -EnginePort 5000
 ```
+
+#### Invoke-RunMinion
+
+Starts specified minion.
+
+##### Syntax
+
+```
+    Invoke-RunMinion
+        -MinionFullName <string>
+        -EnvironmentName
+        -EngineHost <string>
+        -EnginePort <Int32>
+```
+
+##### Example 
+
+```
+    Invoke-RunMinion -MinionFullName "Sitecore.Commerce.Plugin.Carts.PurgeCartsMinion, Sitecore.Commerce.Plugin.Carts" -EnvironmentName HabitatAuthoring
+```

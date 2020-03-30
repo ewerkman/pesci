@@ -74,8 +74,10 @@
         'Invoke-Bootstrap',
         'Invoke-InitializeEnvironment',
         'Invoke-CleanEnvironment',
+        'Invoke-CleanEnvironmentCache',
         'Invoke-CheckLongRunningCommand',
-        'Invoke-RunMinion'
+        'Invoke-RunMinion',
+        'Invoke-EnsureSyncDefaultContentPaths'
         'Get-Entity'
     )
 

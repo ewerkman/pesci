@@ -17,5 +17,4 @@ function Invoke-CheckLongRunningCommand {
 
     Invoke-RestMethod $Url -TimeoutSec 1200 -Method GET -Headers $headers
     
-    Write-Verbose "Initialize environment started" 
 }
