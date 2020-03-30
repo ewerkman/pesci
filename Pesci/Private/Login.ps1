@@ -32,8 +32,18 @@ Function Get-IdServerToken {
 }
 
 function Get-IdServerTokenFromEnvironment {
+
+    if($env:SC_TOKEN -eq $null)
+    {
+        Write-Error -Message "Token has not been set. Call Connect-Commerce to retrieve a token." -ErrorAction Stop
+    }
+
     $secureToken = ConvertTo-SecureString $env:SC_TOKEN
     $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureToken)
     $token = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+
+    $details = Get-JWTDetails -token $token.SubString(7)
+    Write-Host $details.timeToExpiry
+
     return $token
 }
